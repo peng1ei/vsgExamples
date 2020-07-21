@@ -186,7 +186,7 @@ vsg::ref_ptr<vsg::Node> Builder::createQuad(const GeometryInfo& info)
             auto vid = vsg::VertexIndexDraw::create();
             vid->arrays = vsg::DataList{vertices, colors, texcoords};
             vid->indices = indices;
-            vid->indexCount = indices->size();
+            vid->indexCount = static_cast<uint32_t>(indices->size());
             vid->instanceCount = 1;
 
             scenegraph->addChild(vid);
